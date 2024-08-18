@@ -1,3 +1,4 @@
+import { NoErrorThrownError } from '@ehmpathy/error-fns/dist/getError';
 import { getError, given, then, when } from 'test-fns';
 
 import { withExpectOutkey } from './withExpectOutkey';
@@ -8,6 +9,7 @@ describe('withExpectOutkey', () => {
     const getMiracleBySlug = async (input: {
       slug: string;
     }): Promise<{ miracle: Miracle | null; success: true }> => {
+      if (input.slug === 'nulled') return { miracle: null, success: true };
       return { miracle: { slug: 'slug', name: 'name' }, success: true };
     };
 
@@ -35,6 +37,28 @@ describe('withExpectOutkey', () => {
           expect(miracle).toBeDefined();
         },
       );
+
+      then('should be possible to get cause message and stack', async () => {
+        const error = await getError(() =>
+          getMiracleBySlugWrapped({
+            slug: 'nulled',
+          }).expect('miracle', 'isPresent'),
+        );
+        if (error instanceof NoErrorThrownError) throw error;
+        const words = {
+          errorMessage: error.message,
+          errorTrace: error.stack,
+          causeMessage:
+            (error as any).cause instanceof Error
+              ? (error as any).cause.message
+              : undefined,
+          causeTrace:
+            (error as any).cause instanceof Error
+              ? (error as any).cause.stack
+              : undefined,
+        };
+        expect(words.causeTrace).toBeDefined();
+      });
     });
   });
 });
