@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.3](https://github.com/ehmpathy/as-procedure/compare/v1.1.2...v1.1.3) (2025-06-25)
+
+
+### Bug Fixes
+
+* **practs:** bump to latest best ([50e4977](https://github.com/ehmpathy/as-procedure/commit/50e4977a79acf704a083286da3b412c5ca004aea))
+
 ## [1.1.2](https://github.com/ehmpathy/as-procedure/compare/v1.1.1...v1.1.2) (2025-06-25)
 
 
