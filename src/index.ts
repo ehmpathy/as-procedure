@@ -1,3 +1,5 @@
+export * from './logic/asProcedure';
+
 export * from './logic/withExpectOutkey';
 export * from './logic/withExpectOutput';
 export * from './domain/HasName';
