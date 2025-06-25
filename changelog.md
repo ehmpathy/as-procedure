@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.2](https://github.com/ehmpathy/as-procedure/compare/v1.1.1...v1.1.2) (2025-06-25)
+
+
+### Bug Fixes
+
+* **readme:** add more examples to readme ([c42ff8e](https://github.com/ehmpathy/as-procedure/commit/c42ff8e44cbf58490f782878d698406cc2879c25))
+* **readme:** resolve readme copypasta ([080a81e](https://github.com/ehmpathy/as-procedure/commit/080a81e16a90ae10462587ba49233dae62146b1d))
+
 ## [1.1.1](https://github.com/ehmpathy/as-procedure/compare/v1.1.0...v1.1.1) (2025-06-25)
 
 
