@@ -1,9 +1,9 @@
 import { HelpfulError } from '@ehmpathy/error-fns';
+import { Procedure, ProcedureOutput } from 'domain-glossary-procedure';
 import { Serializable } from 'serde-fns';
 import { NotNull } from 'type-fns';
 
 import { getName } from '../domain/HasName';
-import { Procedure, ProcedureOutput } from '../domain/Procedure';
 
 type WithExpectOutkey<R extends Record<string, Serializable | null>> = <
   K extends keyof R,
@@ -12,8 +12,6 @@ type WithExpectOutkey<R extends Record<string, Serializable | null>> = <
   key: K,
   operation: 'isPresent', // todo: support isNull
 ) => Promise<Record<K, NotNull<O>>>;
-
-type Thing = WithExpectOutkey<{ service: string; success: boolean }>;
 
 export const withExpectOutkey = <I, C, O extends Promise<Record<string, any>>>(
   procedure: Procedure<I, C, O>,

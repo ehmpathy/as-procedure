@@ -16,9 +16,6 @@ export const withExpectOutput = <
   TLogic extends (...args: any[]) => Promise<O>,
 >(
   logic: TLogic,
-  options?: {
-    name: string;
-  },
 ) => {
   const wrapped = (
     ...args: Parameters<typeof logic>

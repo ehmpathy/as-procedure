@@ -21,9 +21,12 @@ describe('withExpectOutkey', () => {
         async () => {
           // "anything" should not be a valid key
           await getError(() =>
-            getMiracleBySlugWrapped({
-              slug: 'junk-removal',
-            }).expect(
+            getMiracleBySlugWrapped(
+              {
+                slug: 'junk-removal',
+              },
+              {},
+            ).expect(
               // @ts-expect-error: Argument of type '"anything"' is not assignable to parameter of type '"miracle" | "success"'.ts(2345)
               'anything',
               'isPresent',
@@ -31,18 +34,24 @@ describe('withExpectOutkey', () => {
           );
 
           // but "miracle" should be a valid key
-          const { miracle } = await getMiracleBySlugWrapped({
-            slug: 'junk-removal',
-          }).expect('miracle', 'isPresent');
+          const { miracle } = await getMiracleBySlugWrapped(
+            {
+              slug: 'junk-removal',
+            },
+            {},
+          ).expect('miracle', 'isPresent');
           expect(miracle).toBeDefined();
         },
       );
 
       then('should be possible to get cause message and stack', async () => {
         const error = await getError(() =>
-          getMiracleBySlugWrapped({
-            slug: 'nulled',
-          }).expect('miracle', 'isPresent'),
+          getMiracleBySlugWrapped(
+            {
+              slug: 'nulled',
+            },
+            {},
+          ).expect('miracle', 'isPresent'),
         );
         if (error instanceof NoErrorThrownError) throw error;
         const words = {

@@ -1,7 +1,7 @@
-# procedure-fns
+# as-procedure
 
-![test](https://github.com/ehmpathy/procedure-fns/workflows/test/badge.svg)
-![publish](https://github.com/ehmpathy/procedure-fns/workflows/publish/badge.svg)
+![test](https://github.com/ehmpathy/as-procedure/workflows/test/badge.svg)
+![publish](https://github.com/ehmpathy/as-procedure/workflows/publish/badge.svg)
 
 easily create procedures within a pit-of-success
 
