@@ -8,7 +8,7 @@ easily create procedures within a pit-of-success
 # install
 
 ```sh
-npm install
+npm install as-procedure
 ```
 
 # use
