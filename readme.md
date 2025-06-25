@@ -13,14 +13,26 @@ npm install as-procedure
 
 # use
 
-for example
+### `asProcedure`
+
+- detects name based on declarer file name
+- with-log-trail for observability
 
 ```ts
-const procedure: Procedure<{ exid: string }, { dbConnection: DatabaseConnection }, { flag: Flag } | null> = (input, context) => {...}
+const getJokes = asProcedure((input: { by: { ref: Ref<typeof Joke> }}, context) => {
+  // ...
+})
+```
 
-const input: ProcedureInput<typeof procedure> = { exid: '__exid__' };
 
-const procedureWithExpect = withExpectOutkey(procedure);
+### `withExpectOutkey`
 
-const { flag } = await procedureWithExpect({ exid: 'usa' }, context).expect('flag', 'isPresent');
+```ts
+const getFlagByExid = (input: { exid: string }, context: VisualogicContext): { flag: Flag } | null => {...}
+
+export const sdk = {
+  getFlagByExid: withExpectOutkey(getFlagByExid)
+}
+
+const { flag } = await sdk.getFlagByExid({ exid: 'usa' }, context).expect('flag', 'isPresent');
 ```
