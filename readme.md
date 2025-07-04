@@ -28,7 +28,7 @@ const getJokes = asProcedure((input: { by: { ref: Ref<typeof Joke> }}, context) 
 ### `withExpectOutkey`
 
 ```ts
-const getFlagByExid = (input: { exid: string }, context: VisualogicContext): { flag: Flag } | null => {...}
+const getFlagByExid = (input: { exid: string }, context: ContextLogTrail): { flag: Flag } | null => {...}
 
 export const sdk = {
   getFlagByExid: withExpectOutkey(getFlagByExid)

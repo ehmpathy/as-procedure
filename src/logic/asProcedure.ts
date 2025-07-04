@@ -1,5 +1,5 @@
 import { Procedure } from 'domain-glossary-procedure';
-import { withLogTrail, HasVisualogicContext } from 'visualogic';
+import { withLogTrail, HasContextLogTrail } from 'simple-log-methods';
 
 import { getCallerFileName } from './getCallerFileName';
 import { inferProcedureName } from './inferProcedureName';
@@ -12,7 +12,7 @@ import { inferProcedureName } from './inferProcedureName';
  *   - withWrappers by default
  */
 export const asProcedure = <TProcedure extends Procedure>(
-  logic: HasVisualogicContext<TProcedure>,
+  logic: HasContextLogTrail<TProcedure>,
 ): TProcedure => {
   const callerFileName = getCallerFileName();
   const inferredProcedureName = callerFileName
