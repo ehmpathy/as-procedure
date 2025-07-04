@@ -5,5 +5,4 @@ export * from './logic/withExpectOutput';
 export * from './domain/HasName';
 
 export * from 'domain-glossary-procedure'; // downstream consumers should only need as-procedure
-
-export { ContextLogTrail } from 'simple-log-methods';
+export * from 'simple-log-methods'; // note: must export *, as otherwise not all subtypes are accessible via as-procedure
