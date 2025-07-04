@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.4](https://github.com/ehmpathy/as-procedure/compare/v1.1.3...v1.1.4) (2025-07-04)
+
+
+### Bug Fixes
+
+* **deps:** bump to use ContextLogTrail ([631f8e9](https://github.com/ehmpathy/as-procedure/commit/631f8e9031bba00bf3f9846e682ce670b4f8ac0f))
+
 ## [1.1.3](https://github.com/ehmpathy/as-procedure/compare/v1.1.2...v1.1.3) (2025-06-25)
 
 
