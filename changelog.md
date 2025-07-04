@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.5](https://github.com/ehmpathy/as-procedure/compare/v1.1.4...v1.1.5) (2025-07-04)
+
+
+### Bug Fixes
+
+* **pkg:** expand exports from simple-log-methods to prevent ts portability errors ([884511c](https://github.com/ehmpathy/as-procedure/commit/884511c6d0a1cf5f187cd6b9a675dc257cccc74b))
+
 ## [1.1.4](https://github.com/ehmpathy/as-procedure/compare/v1.1.3...v1.1.4) (2025-07-04)
 
 
