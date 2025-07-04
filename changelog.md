@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.6](https://github.com/ehmpathy/as-procedure/compare/v1.1.5...v1.1.6) (2025-07-04)
+
+
+### Bug Fixes
+
+* **deps:** bump to latest ver of log dep ([758a23c](https://github.com/ehmpathy/as-procedure/commit/758a23c17960e529a2415c8b6de4a187e3b5d63b))
+
 ## [1.1.5](https://github.com/ehmpathy/as-procedure/compare/v1.1.4...v1.1.5) (2025-07-04)
 
 
