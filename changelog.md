@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.7](https://github.com/ehmpathy/as-procedure/compare/v1.1.6...v1.1.7) (2025-07-08)
+
+
+### Bug Fixes
+
+* **types:** expose WithExpectOutput and WithExpectOutkey type generics ([d414df5](https://github.com/ehmpathy/as-procedure/commit/d414df575c4b0a26509fe70fa66ce1fd5b7fea75))
+
 ## [1.1.6](https://github.com/ehmpathy/as-procedure/compare/v1.1.5...v1.1.6) (2025-07-04)
 
 
