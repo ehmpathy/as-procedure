@@ -5,7 +5,7 @@ import { NotNull } from 'type-fns';
 
 import { getName } from '../domain/HasName';
 
-type WithExpectOutkey<R extends Record<string, Serializable | null>> = <
+type AsExpectOutkey<R extends Record<string, Serializable | null>> = <
   K extends keyof R,
   O extends R[K],
 >(
@@ -13,13 +13,19 @@ type WithExpectOutkey<R extends Record<string, Serializable | null>> = <
   operation: 'isPresent', // todo: support isNull
 ) => Promise<Record<K, NotNull<O>>>;
 
+export type WithExpectOutkey<
+  TLogic extends (...args: any[]) => Promise<Record<string, any>>,
+> = (...args: Parameters<TLogic>) => ReturnType<TLogic> & {
+  expect: AsExpectOutkey<Awaited<ReturnType<TLogic>>>;
+};
+
 export const withExpectOutkey = <I, C, O extends Promise<Record<string, any>>>(
   procedure: Procedure<I, C, O>,
-) => {
+): WithExpectOutkey<typeof procedure> => {
   const wrapped = (
     ...args: Parameters<typeof procedure>
   ): ReturnType<typeof procedure> & {
-    expect: WithExpectOutkey<Awaited<ProcedureOutput<typeof procedure>>>;
+    expect: AsExpectOutkey<Awaited<ProcedureOutput<typeof procedure>>>;
   } => {
     // define an error which has access to the original call.stack, so we can trace the stack to the root caller, since promises loose their chain
     const errorFromOriginalCall = new HelpfulError('expect.outkey: call', {

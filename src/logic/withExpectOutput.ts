@@ -11,12 +11,18 @@ type ExpectOutput<O extends Record<string, any> | null> =
   ExpectOutputIsPresent<O>;
 // | ExpectOutputIsNull;
 
+export type WithExpectOutput<
+  TLogic extends (...args: any[]) => Promise<Record<string, any> | null>,
+> = (...args: Parameters<TLogic>) => ReturnType<TLogic> & {
+  expect: ExpectOutput<Awaited<ReturnType<TLogic>>>;
+};
+
 export const withExpectOutput = <
   O extends Record<string, any> | null,
   TLogic extends (...args: any[]) => Promise<O>,
 >(
   logic: TLogic,
-) => {
+): WithExpectOutput<TLogic> => {
   const wrapped = (
     ...args: Parameters<typeof logic>
   ): ReturnType<typeof logic> & {
