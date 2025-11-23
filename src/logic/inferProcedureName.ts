@@ -3,6 +3,7 @@ export const inferProcedureName = (fileName: string): string =>
     .split('/')
     .slice(-1)[0]!
     .replace(/\.ts$/, '')
+    .replace(/\.js$/, '')
     .replace('.acceptance.test', '')
     .replace('.integration.test', '')
     .replace('.test', '');

@@ -14,7 +14,7 @@ export const getCallerFileName = (
     // depth = 1 is the function that called this function
     // depth = 2 is the caller of the function that called this function
     const callSite = stack[input.depth];
-    return callSite?.getFileName();
+    return callSite?.getFileName() ?? undefined;
   } catch {
     return undefined;
   } finally {
