@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.8](https://github.com/ehmpathy/as-procedure/compare/v1.1.7...v1.1.8) (2025-11-23)
+
+
+### Bug Fixes
+
+* **obs:** trim .js suffixes from procedure name inference ([5a371ce](https://github.com/ehmpathy/as-procedure/commit/5a371ce48ada66f3dd5e15e4c7e19b88af011d2c))
+
 ## [1.1.7](https://github.com/ehmpathy/as-procedure/compare/v1.1.6...v1.1.7) (2025-07-08)
 
 
