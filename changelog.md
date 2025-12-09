@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.9](https://github.com/ehmpathy/as-procedure/compare/v1.1.8...v1.1.9) (2025-12-09)
+
+
+### Bug Fixes
+
+* **deps:** bump simple-log-methods depver ([ce8ec2b](https://github.com/ehmpathy/as-procedure/commit/ce8ec2b5012814e32ba95ef1060d3ab84ca97ba6))
+
 ## [1.1.8](https://github.com/ehmpathy/as-procedure/compare/v1.1.7...v1.1.8) (2025-11-23)
 
 
