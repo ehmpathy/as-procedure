@@ -1,7 +1,7 @@
-import { HelpfulError } from '@ehmpathy/error-fns';
-import { Procedure, ProcedureOutput } from 'domain-glossary-procedure';
-import { Serializable } from 'serde-fns';
-import { NotNull } from 'type-fns';
+import type { Procedure, ProcedureOutput } from 'domain-glossary-procedure';
+import { HelpfulError } from 'helpful-errors';
+import type { Serializable } from 'serde-fns';
+import type { NotNull } from 'type-fns';
 
 import { getName } from '../domain/HasName';
 

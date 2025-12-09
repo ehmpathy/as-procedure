@@ -1,6 +1,6 @@
-import { HelpfulError } from '@ehmpathy/error-fns';
-import { NoErrorThrownError } from '@ehmpathy/error-fns/dist/getError';
-import { getError, given, then, when } from 'test-fns';
+import { getError, HelpfulError } from 'helpful-errors';
+import { NoErrorThrownError } from 'helpful-errors/dist/getError';
+import { given, then, when } from 'test-fns';
 
 import { withExpectOutput } from './withExpectOutput';
 
