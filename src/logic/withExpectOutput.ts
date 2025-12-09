@@ -1,5 +1,5 @@
-import { HelpfulError } from '@ehmpathy/error-fns';
-import { NotNull } from 'type-fns';
+import { HelpfulError } from 'helpful-errors';
+import type { NotNull } from 'type-fns';
 
 import { getName } from '../domain/HasName';
 

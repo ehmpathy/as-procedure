@@ -1,5 +1,5 @@
-import { Procedure } from 'domain-glossary-procedure';
-import { withLogTrail, HasContextLogTrail } from 'simple-log-methods';
+import type { Procedure } from 'domain-glossary-procedure';
+import { type HasContextLogTrail, withLogTrail } from 'simple-log-methods';
 
 import { getCallerFileName } from './getCallerFileName';
 import { inferProcedureName } from './inferProcedureName';
