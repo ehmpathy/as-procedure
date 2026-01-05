@@ -1,7 +1,7 @@
 import { HelpfulError } from 'helpful-errors';
 import type { NotNull } from 'type-fns';
 
-import { getName } from '../domain/HasName';
+import { getName } from '@src/domain.objects/HasName';
 
 type ExpectOutputIsPresent<O extends Record<string, any> | null> = (
   operation: 'isPresent',
