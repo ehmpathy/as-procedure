@@ -11,9 +11,6 @@ importers:
       domain-glossary-procedure:
         specifier: 1.0.0
         version: 1.0.0
-      domain-objects:
-        specifier: 0.31.9
-        version: 0.31.9
       helpful-errors:
         specifier: 1.5.3
         version: 1.5.3
@@ -23,9 +20,6 @@ importers:
       simple-log-methods:
         specifier: 0.6.9
         version: 0.6.9
-      test-fns:
-        specifier: 1.4.2
-        version: 1.4.2
       type-fns:
         specifier: 1.21.0
         version: 1.21.0
@@ -75,6 +69,9 @@ importers:
       depcheck:
         specifier: 1.4.3
         version: 1.4.3
+      domain-objects:
+        specifier: 0.31.9
+        version: 0.31.9
       esbuild-register:
         specifier: 3.6.0
         version: 3.6.0(esbuild@0.25.12)
@@ -96,6 +93,9 @@ importers:
       rhachet-roles-ehmpathy:
         specifier: 1.17.10
         version: 1.17.10(@anthropic-ai/sdk@0.71.2(zod@3.25.76))(@types/node@22.15.21)(hono@4.11.3)(zod@3.25.76)
+      test-fns:
+        specifier: 1.4.2
+        version: 1.4.2
       tsc-alias:
         specifier: 1.8.10
         version: 1.8.10
