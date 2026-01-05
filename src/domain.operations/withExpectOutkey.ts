@@ -3,7 +3,7 @@ import { HelpfulError } from 'helpful-errors';
 import type { Serializable } from 'serde-fns';
 import type { NotNull } from 'type-fns';
 
-import { getName } from '../domain/HasName';
+import { getName } from '@src/domain.objects/HasName';
 
 type AsExpectOutkey<R extends Record<string, Serializable | null>> = <
   K extends keyof R,
