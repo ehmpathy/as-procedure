@@ -11,13 +11,29 @@
   ],
   "bugs": "https://github.com/ehmpathy/as-procedure/issues",
   "license": "MIT",
-  "main": "dist/index.js",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "dist/index.d.ts",
+        "default": "dist/index.js"
+      },
+      "require": {
+        "types": "dist/index.d.cts",
+        "default": "dist/index.cjs"
+      }
+    }
+  },
   "engines": {
     "node": ">=8.0.0"
   },
   "files": [
     "/dist"
   ],
+  "sideEffects": false,
   "scripts": {
     "build:ts": "tsc -p ./tsconfig.build.json",
     "commit:with-cli": "npx cz",
@@ -26,7 +42,10 @@
     "fix:lint": "biome check --write",
     "fix": "npm run fix:format && npm run fix:lint",
     "build:clean": "chmod -R u+w dist 2>/dev/null; rm -rf dist/",
-    "build:compile": "tsc -p ./tsconfig.build.json && tsc-alias -p ./tsconfig.build.json",
+    "build:compile:js": "tsup",
+    "build:compile:types": "tsc -p ./tsconfig.build.json --emitDeclarationOnly",
+    "build:compile:types:bundle": "api-extractor run --local",
+    "build:compile": "npm run build:compile:js && npm run build:compile:types && npm run build:compile:types:bundle",
     "build": "npm run build:clean && npm run build:compile && npm run build:complete --if-present",
     "test:commits": "LAST_TAG=$(git describe --tags --abbrev=0 @^ 2> /dev/null || git rev-list --max-parents=0 HEAD) && npx commitlint --from $LAST_TAG --to HEAD --verbose",
     "test:types": "tsc -p ./tsconfig.json --noEmit",
@@ -49,15 +68,9 @@
     "prepare:rhachet": "rhachet init && rhachet roles link --repo ehmpathy --role mechanic && rhachet roles link --repo bhuild --role behaver && rhachet roles link --repo bhrain --role reviewer && rhachet roles init --role mechanic && rhachet roles init --role behaver",
     "prepare": "if [ -e .git ] && [ -z $CI ]; then npm run prepare:husky && npm run prepare:rhachet; fi"
   },
-  "dependencies": {
-    "domain-glossary-procedure": "1.0.0",
-    "helpful-errors": "1.5.3",
-    "serde-fns": "1.0.0",
-    "simple-log-methods": "0.6.9",
-    "type-fns": "1.21.0"
-  },
   "devDependencies": {
     "@biomejs/biome": "2.3.8",
+    "@microsoft/api-extractor": "7.52.8",
     "@commitlint/cli": "19.5.0",
     "@commitlint/config-conventional": "19.5.0",
     "@swc/core": "1.15.3",
@@ -67,22 +80,28 @@
     "@types/jest": "30.0.0",
     "@types/node": "22.15.21",
     "cz-conventional-changelog": "3.3.0",
-    "declapract": "0.13.11",
-    "declapract-typescript-ehmpathy": "0.47.14",
+    "declapract": "0.13.14",
+    "declapract-typescript-ehmpathy": "0.47.21",
     "declastruct": "1.7.3",
     "declastruct-github": "1.3.0",
     "depcheck": "1.4.3",
+    "domain-glossary-procedure": "1.0.0",
     "domain-objects": "0.31.9",
     "esbuild-register": "3.6.0",
+    "helpful-errors": "1.5.3",
     "husky": "8.0.3",
     "jest": "30.2.0",
-    "rhachet": "1.19.12",
+    "rhachet": "1.22.2",
     "rhachet-roles-bhrain": "0.5.8",
-    "rhachet-roles-bhuild": "0.5.1",
-    "rhachet-roles-ehmpathy": "1.17.10",
+    "rhachet-roles-bhuild": "0.6.6",
+    "rhachet-roles-ehmpathy": "1.17.20",
+    "serde-fns": "1.0.0",
+    "simple-log-methods": "0.6.9",
     "test-fns": "1.4.2",
     "tsc-alias": "1.8.10",
+    "tsup": "8.5.1",
     "tsx": "4.20.6",
+    "type-fns": "1.21.0",
     "typescript": "5.4.5",
     "yalc": "1.0.0-pre.53"
   },
