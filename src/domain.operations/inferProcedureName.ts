@@ -1,5 +1,5 @@
-export const inferProcedureName = (fileName: string): string =>
-  fileName
+export const inferProcedureName = (input: { fileName: string }): string =>
+  input.fileName
     .split('/')
     .slice(-1)[0]!
     .replace(/\.ts$/, '')
