@@ -3,7 +3,7 @@
   "type": "module",
   "author": "ehmpathy",
   "description": "easily create procedures within a pit-of-success",
-  "version": "1.1.11",
+  "version": "1.1.12",
   "repository": "ehmpathy/as-procedure",
   "homepage": "https://github.com/ehmpathy/as-procedure",
   "keywords": [
