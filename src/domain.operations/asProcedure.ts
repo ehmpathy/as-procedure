@@ -16,7 +16,7 @@ export const asProcedure = <TProcedure extends Procedure>(
 ): TProcedure => {
   const callerFileName = getCallerFileName();
   const inferredProcedureName = callerFileName
-    ? inferProcedureName(callerFileName)
+    ? inferProcedureName({ fileName: callerFileName })
     : undefined;
   return withLogTrail(logic, { name: inferredProcedureName }) as TProcedure;
 };
