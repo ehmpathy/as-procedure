@@ -17,17 +17,18 @@ const config: Config = {
     ['test-fns/slowtest.reporter.jest', { slow: '10s', output: '.log/slowtest/acceptance.report.json' }],
   ],
   testEnvironment: 'node',
-  moduleFileExtensions: ['js', 'ts'],
+  moduleFileExtensions: ['js', 'ts', 'mjs'],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/$1',
     '^@src/(.*)$': '<rootDir>/src/$1',
   },
   transform: {
     '^.+\\.(t|j)sx?$': '@swc/jest',
+    '^.+\\.mjs$': '@swc/jest',
   },
   transformIgnorePatterns: [
-    // here's an example of how to ignore esm module transformation, when needed
-    // 'node_modules/(?!(@octokit|universal-user-agent|before-after-hook)/)',
+    // transform dist/*.mjs and esm-only node_modules packages
+    'node_modules/(?!(age-encryption|@noble/hashes)/)',
   ],
   testMatch: ['**/*.acceptance.test.ts', '!**/.yalc/**'],
   setupFilesAfterEnv: ['./jest.acceptance.env.ts'],
