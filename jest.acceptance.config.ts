@@ -26,10 +26,7 @@ const config: Config = {
     '^.+\\.(t|j)sx?$': '@swc/jest',
     '^.+\\.mjs$': '@swc/jest',
   },
-  transformIgnorePatterns: [
-    // transform dist/*.mjs and esm-only node_modules packages
-    'node_modules/(?!(age-encryption|@noble/hashes)/)',
-  ],
+  transformIgnorePatterns: [],
   testMatch: ['**/*.acceptance.test.ts', '!**/.yalc/**'],
   setupFilesAfterEnv: ['./jest.acceptance.env.ts'],
 

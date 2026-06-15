@@ -3,6 +3,7 @@ import { join } from 'node:path';
 import util from 'node:util';
 
 import { jest } from '@jest/globals';
+import { keyrack } from 'rhachet/keyrack';
 
 jest.setTimeout(90000); // we're calling downstream apis
 
@@ -35,7 +36,11 @@ if (
   );
 
 /**
- * .note = keyrack sourcing removed from this repo
- * .why = this repo's acceptance tests don't require API keys
- *        (they only test dist bundle exports and types)
+ * .what = source credentials from keyrack for test env
+ * .why =
+ *   - auto-inject keys into process.env
+ *   - fail fast with helpful error if keyrack locked or keys absent
  */
+const keyrackYmlPath = join(process.cwd(), '.agent/keyrack.yml');
+if (existsSync(keyrackYmlPath))
+  keyrack.source({ env: 'test', owner: 'ehmpath', mode: 'strict' });
